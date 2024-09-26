@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/egg.png">
+  <link rel="icon" href="/img/egg.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="monica">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1.数组1.1 二分查找1.1.1 二分查找小技巧：位运算比&#x2F;2更快（注意位移运算符优先级比加法运算符低） 1middle &#x3D; Math.floor(((left + (right - left) &gt;&gt;1)))  key :有序数组、没有重复元素方可使用二分法，其实思路很简单，但确实很容易一看就会一写就废 1.1.2 在排序数组中查找元素的第一个和最后一个位置注意左边界和右边">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode刷题心得（持续更新中...）">
+<meta property="og:url" content="http://example.com/2024/09/26/LeetCode%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/index.html">
+<meta property="og:site_name" content="monica的个人博客">
+<meta property="og:description" content="1.数组1.1 二分查找1.1.1 二分查找小技巧：位运算比&#x2F;2更快（注意位移运算符优先级比加法运算符低） 1middle &#x3D; Math.floor(((left + (right - left) &gt;&gt;1)))  key :有序数组、没有重复元素方可使用二分法，其实思路很简单，但确实很容易一看就会一写就废 1.1.2 在排序数组中查找元素的第一个和最后一个位置注意左边界和右边">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/leetcode.png">
+<meta property="article:published_time" content="2024-09-26T12:29:28.000Z">
+<meta property="article:modified_time" content="2024-09-26T12:55:04.901Z">
+<meta property="article:author" content="monica">
+<meta property="article:tag" content="面试准备">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/leetcode.png">
+  
+  
+  
+  <title>LeetCode刷题心得（持续更新中...） - monica的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"UCX6Z0bgMX2VKp9OOfO3y6Kz-MdYXbMMI","app_key":"N0LfGAEBHMjHluMYQMLbyISO","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>monica&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LeetCode刷题心得（持续更新中...）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-26 20:29" pubdate>
+          2024年9月26日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          14 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span>次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">LeetCode刷题心得（持续更新中...）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-数组"><a href="#1-数组" class="headerlink" title="1.数组"></a>1.数组</h1><h2 id="1-1-二分查找"><a href="#1-1-二分查找" class="headerlink" title="1.1 二分查找"></a>1.1 二分查找</h2><h3 id="1-1-1-二分查找"><a href="#1-1-1-二分查找" class="headerlink" title="1.1.1 二分查找"></a>1.1.1 二分查找</h3><p>小技巧：位运算比&#x2F;2更快（注意位移运算符优先级比加法运算符低）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">middle = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(((left + (right - left) &gt;&gt;<span class="hljs-number">1</span>)))<br></code></pre></td></tr></table></figure>
+
+<p>key :有序数组、没有重复元素方可使用二分法，其实思路很简单，但确实很容易一看就会一写就废</p>
+<h3 id="1-1-2-在排序数组中查找元素的第一个和最后一个位置"><a href="#1-1-2-在排序数组中查找元素的第一个和最后一个位置" class="headerlink" title="1.1.2 在排序数组中查找元素的第一个和最后一个位置"></a>1.1.2 在排序数组中查找元素的第一个和最后一个位置</h3><p>注意左边界和右边界初始值不要赋值为-1，因为有可能超出数组之外值为-1</p>
+<h3 id="1-1-3-x的平方根"><a href="#1-1-3-x的平方根" class="headerlink" title="1.1.3 x的平方根"></a>1.1.3 x的平方根</h3><p><img src="/2024/09/26/LeetCode%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/Ainvolution/frontend/blog-test/source/_posts/LeetCode刷题心得/image-20240922193504108.png" srcset="/img/loading.gif" lazyload alt="image-20240922193504108"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span> &#123;<span class="hljs-type">number</span>&#125; <span class="hljs-variable">x</span></span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span> &#123;<span class="hljs-type">number</span>&#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-comment">// x的平方根大小在0到x之间</span><br><span class="hljs-comment">// 利用二分法，找到平方等于x的mid；或平方小于x但mid+1的平方大于x</span><br><span class="hljs-keyword">var</span> mySqrt = <span class="hljs-keyword">function</span> (<span class="hljs-params">x</span>) &#123;<br>  <span class="hljs-keyword">let</span> left = <span class="hljs-number">1</span><br>  <span class="hljs-keyword">let</span> right = x<br>  <span class="hljs-keyword">let</span> mid = <span class="hljs-number">0</span><br>  <span class="hljs-keyword">if</span> (x === <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x === <span class="hljs-number">1</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>      mid = left + ((right - left) &gt;&gt; <span class="hljs-number">1</span>)<br>      <span class="hljs-keyword">if</span> (mid * mid &lt; x) &#123;<br>        left = mid + <span class="hljs-number">1</span><br>      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (mid * mid &gt; x) &#123;<br>        right = mid - <span class="hljs-number">1</span><br>      &#125; <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> mid<br>      &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> right<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="1-2-移除元素"><a href="#1-2-移除元素" class="headerlink" title="1.2 移除元素"></a>1.2 移除元素</h2><h3 id="1-2-1-移除元素"><a href="#1-2-1-移除元素" class="headerlink" title="1.2.1 移除元素"></a>1.2.1 移除元素</h3><p>不能用filter方法，因为要求是要原地修改数组而非返回一个新的数组（filter不会修改原数组，给nums赋值也不行因为就是形参而已，对外部数组是没有影响的）</p>
+<p>关键：数组在内存空间地址是连续的，删除元素实际上只能将其覆盖</p>
+<h4 id="补充：-JavaScript的参数传递方式"><a href="#补充：-JavaScript的参数传递方式" class="headerlink" title="补充： JavaScript的参数传递方式"></a>补充： JavaScript的参数传递方式</h4><p>JavaScript 中的变量传递方式可以理解为一种混合模式：</p>
+<ul>
+<li><p><strong>原始类型</strong>（如 <code>number</code>, <code>string</code>, <code>boolean</code>, <code>null</code>, <code>undefined</code>）是<strong>值传递</strong>。</p>
+</li>
+<li><p><strong>引用类型</strong>（如 <code>Object</code>, <code>Array</code>, <code>Function</code>）是<strong>引用传递</strong>，但这里的引用实际上是<strong>按值传递引用</strong>。也就是说，虽然引用的内容会改变，但你不能通过赋值改变引用本身。</p>
+<p><strong>理解按值传递引用</strong>：<strong>1.引用的内容会改变</strong>：当你通过引用类型（比如对象或数组）传递参数时，你可以修改引用所指向的对象或数组的<strong>内容</strong>，这会影响到原来的对象或数组。<strong>2.不能通过赋值改变引用本身</strong>：但如果你尝试给这个引用本身赋值（即把它指向一个新的对象或数组），这个赋值不会影响原来的引用。</p>
+<p><strong>总结：</strong></p>
+<p><strong>引用的值传递</strong>：你传递的是引用的副本，也就是变量指向对象的内存地址的副本。因此，函数内部对这个引用对象内容的修改会影响外部变量。</p>
+<p><strong>赋值改变引用本身无效</strong>：如果在函数内部重新赋值给这个引用变量（让它指向另一个对象），这个赋值只会在函数内部生效，外部的引用并不会改变。</p>
+<p>这个现象是因为 JavaScript 的函数参数传递方式是 “按值传递引用”（pass-by-value of the reference），即你传递的其实是引用的一个<strong>值副本</strong>。你可以修改引用指向的内容，但不能通过给引用赋值来改变外部的对象或数组。</p>
+</li>
+</ul>
+<h4 id="1-2-2-1-暴力解法"><a href="#1-2-2-1-暴力解法" class="headerlink" title="1.2.2.1 暴力解法"></a>1.2.2.1 暴力解法<img src="/2024/09/26/LeetCode%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/Ainvolution/frontend/blog-test/source/_posts/LeetCode刷题心得/27.移除元素-暴力解法.gif" srcset="/img/loading.gif" lazyload alt="27.移除元素-暴力解法"></h4><p>每次遇到要删除的元素都把其后的元素每个都往前移一位</p>
+<h4 id="1-2-2-2-双指针法"><a href="#1-2-2-2-双指针法" class="headerlink" title="1.2.2.2 双指针法"></a>1.2.2.2 双指针法</h4><p><img src="/2024/09/26/LeetCode%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/Ainvolution/frontend/blog-test/source/_posts/LeetCode刷题心得/27.移除元素-双指针法.gif" srcset="/img/loading.gif" lazyload alt="27.移除元素-双指针法"></p>
+<p>关键要明确快指针、慢指针指向什么</p>
+<p>快指针：指向新数组的元素（即不为目标值的元素），相当于value</p>
+<p>慢指针：指向新数组的下标，相当于key</p>
+<p>所以只要将快指针指向的值赋值给慢指针指向的元素即可啦（把key-value对应起来）</p>
+<p>注意指针变量的初始化</p>
+<h3 id="1-2-2-删除排序数组中的重复项"><a href="#1-2-2-删除排序数组中的重复项" class="headerlink" title="1.2.2 删除排序数组中的重复项"></a>1.2.2 删除排序数组中的重复项</h3><p>关键：重复元素相邻，快慢指针指向元素不同时，将快指针指向的元素赋值给慢指针的下一位</p>
+<h3 id="1-2-3-移动零"><a href="#1-2-3-移动零" class="headerlink" title="1.2.3 移动零"></a>1.2.3 移动零</h3><p>将快指针指向元素赋值给慢指针指向元素改为两个指针指向元素交换即可</p>
+<h3 id="1-2-4-比较含退格的字符串"><a href="#1-2-4-比较含退格的字符串" class="headerlink" title="1.2.4 比较含退格的字符串"></a>1.2.4 比较含退格的字符串</h3><h4 id="1-2-4-1-栈模拟（逻辑要简单一点）"><a href="#1-2-4-1-栈模拟（逻辑要简单一点）" class="headerlink" title="1.2.4.1 栈模拟（逻辑要简单一点）"></a>1.2.4.1 栈模拟（逻辑要简单一点）</h4><p>用数组的push和pop方法模拟栈，如果不为#压入栈，如果为#则弹出栈顶（注意要栈长度大于0）</p>
+<h4 id="1-2-4-2-双指针法（情况比较多）"><a href="#1-2-4-2-双指针法（情况比较多）" class="headerlink" title="1.2.4.2 双指针法（情况比较多）"></a>1.2.4.2 双指针法（情况比较多）</h4><p>关键：算去掉退格后的字符串：删除#号左边的元素&#x3D;&gt;逆序遍历数组，跳过前一个是#号的元素&#x3D;&gt;用一个变量来村塾遇到#号的个数，下一次遇到非#就–。记住是要比较两个字符串，比较两个指针指向的元素</p>
+<h4 id="补充：为什么-if-i-0-j-0-不能替代-if-i-0-j-0-？"><a href="#补充：为什么-if-i-0-j-0-不能替代-if-i-0-j-0-？" class="headerlink" title="补充：为什么 if(i &lt; 0 || j &lt; 0) 不能替代 if ((i &gt;= 0) !== (j &gt;= 0))？"></a>补充：<strong>为什么 <code>if(i &lt; 0 || j &lt; 0)</code> 不能替代 <code>if ((i &gt;= 0) !== (j &gt;= 0))</code>？</strong></h4><p>当用 <code>if (i &lt; 0 || j &lt; 0)</code> 替代 <code>if ((i &gt;= 0) !== (j &gt;= 0))</code> 时，会包括以下两种情况：</p>
+<ol>
+<li><strong>都无效时（<code>i &lt; 0 &amp;&amp; j &lt; 0</code>）</strong>：<ul>
+<li>在这种情况下，两个字符串其实已经比较完毕，应该继续检查它们剩余的字符，而不应该直接返回 <code>false</code>。但 <code>i &lt; 0 || j &lt; 0</code> 条件会误判这种情况，返回 <code>false</code>。</li>
+</ul>
+</li>
+<li><strong>只有一个无效时（<code>i &lt; 0 || j &lt; 0</code>）</strong>：<ul>
+<li>这在逻辑上与 <code>!==</code> 表达式的一种子集情况相同，但我们之前提到的错误判定覆盖了导致它的不足。</li>
+</ul>
+</li>
+</ol>
+<h4 id="1-2-4-3-有序数组的平方"><a href="#1-2-4-3-有序数组的平方" class="headerlink" title="1.2.4.3 有序数组的平方"></a>1.2.4.3 有序数组的平方</h4><p>双指针一：找正负数分隔&#x3D;&gt;比如最后一个负数的索引（注意全为负数的情况）。负数平方从右到左非递减顺序，正数平方从左往右非递减顺序&#x3D;&gt;扫描顺序是从小到大，正序放入新数组即可。此方法要考虑的情况比较多，因为从正负数分隔扫描的特殊性，两段长度可能不同，扫描结束的条件也不同，需分别讨论某一扫描结束后的操作。而方法二的好处在于可以用一个条件判断扫描是否结束</p>
+<p>双指针二：比较平方后的数组左边和右边的元素，把大的逆序放入新数组，注意逆序放入是必要的，因为扫描的顺序决定了，负数部分平方和正数部分平方都是从大到小的顺序</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/" class="print-no-link">#面试准备</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LeetCode刷题心得（持续更新中...）</div>
+      <div>http://example.com/2024/09/26/LeetCode刷题心得/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>monica</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月26日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/09/26/%E5%86%8D%E7%9C%8BVue/" title="再看Vue（持续更新中...）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">再看Vue（持续更新中...）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/09/24/%E7%A1%85%E8%B0%B7%E7%94%84%E9%80%89%E8%BF%90%E8%90%A5%E5%B9%B3%E5%8F%B0/" title="硅谷甄选运营平台">
+                        <span class="hidden-mobile">硅谷甄选运营平台</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"waline-blog-umber.vercel.app","path":"window.location.pathname","placeholder":"天青色等烟雨，评论区在等你，来发点友善的评论吧~","meta":["nick","mail","link"],"avatar":"wavatar","requiredMeta":[],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@1.0.0/qq"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量
+        <span id="leancloud-site-pv"></span>
+        次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访问数
+        <span id="leancloud-site-uv"></span>
+        人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
