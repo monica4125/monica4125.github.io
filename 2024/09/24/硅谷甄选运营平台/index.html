@@ -1,0 +1,1061 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/egg.png">
+  <link rel="icon" href="/img/egg.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="monica">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1.项目初始化模板路由配置一级路由搭建 2.登录模块登录静态页面搭建element plus组件库使用 登录验证注意要配置生产环境，解决跨域问题，才能成功访问到接口 登录时间判断注意Date静态方法与new Date()调用的实例方法区别 实例方法: 需要通过new Date()实例化一个日期对象后调用，操作的是具体的日期对象。 常见实例方法：  getFullYear(): 获取年份。 getM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="硅谷甄选运营平台">
+<meta property="og:url" content="http://example.com/2024/09/24/%E7%A1%85%E8%B0%B7%E7%94%84%E9%80%89%E8%BF%90%E8%90%A5%E5%B9%B3%E5%8F%B0/index.html">
+<meta property="og:site_name" content="monica的个人博客">
+<meta property="og:description" content="1.项目初始化模板路由配置一级路由搭建 2.登录模块登录静态页面搭建element plus组件库使用 登录验证注意要配置生产环境，解决跨域问题，才能成功访问到接口 登录时间判断注意Date静态方法与new Date()调用的实例方法区别 实例方法: 需要通过new Date()实例化一个日期对象后调用，操作的是具体的日期对象。 常见实例方法：  getFullYear(): 获取年份。 getM">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/ggzx.png">
+<meta property="article:published_time" content="2024-09-24T08:05:10.000Z">
+<meta property="article:modified_time" content="2024-11-11T06:33:55.626Z">
+<meta property="article:author" content="monica">
+<meta property="article:tag" content="项目笔记">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/img/ggzx.png">
+  
+  
+  
+  <title>硅谷甄选运营平台 - monica的个人博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"UCX6Z0bgMX2VKp9OOfO3y6Kz-MdYXbMMI","app_key":"N0LfGAEBHMjHluMYQMLbyISO","server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>monica&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.5)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="硅谷甄选运营平台"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-24 16:05" pubdate>
+          2024年9月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          78 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span>次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">硅谷甄选运营平台</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-项目初始化"><a href="#1-项目初始化" class="headerlink" title="1.项目初始化"></a>1.项目初始化</h1><h2 id="模板路由配置"><a href="#模板路由配置" class="headerlink" title="模板路由配置"></a>模板路由配置</h2><p>一级路由搭建</p>
+<h1 id="2-登录模块"><a href="#2-登录模块" class="headerlink" title="2.登录模块"></a>2.登录模块</h1><h2 id="登录静态页面搭建"><a href="#登录静态页面搭建" class="headerlink" title="登录静态页面搭建"></a>登录静态页面搭建</h2><p>element plus组件库使用</p>
+<h2 id="登录验证"><a href="#登录验证" class="headerlink" title="登录验证"></a>登录验证</h2><p>注意要配置生产环境，解决跨域问题，才能成功访问到接口</p>
+<h2 id="登录时间判断"><a href="#登录时间判断" class="headerlink" title="登录时间判断"></a>登录时间判断</h2><p>注意Date静态方法与new Date()调用的实例方法区别</p>
+<p><strong>实例方法</strong>: 需要通过<code>new Date()</code>实例化一个日期对象后调用，操作的是具体的日期对象。</p>
+<p><strong>常见实例方法：</strong></p>
+<ul>
+<li><code>getFullYear()</code>: 获取年份。</li>
+<li><code>getMonth()</code>: 获取月份（0-11，0表示一月）。</li>
+<li><code>getDate()</code>: 获取日期（1-31）。</li>
+<li><code>getDay()</code>: 获取星期几（0-6，0表示星期日）。</li>
+<li><code>getHours()</code>: 获取小时（0-23）。</li>
+<li><code>getMinutes()</code>: 获取分钟（0-59）。</li>
+<li><code>getSeconds()</code>: 获取秒（0-59）。</li>
+<li><code>toString()</code>: 返回日期对象的字符串表示。</li>
+</ul>
+<p><strong>静态方法</strong>: 不需要实例化，可以直接通过<code>Date</code>构造函数调用，通常用于全局时间相关的操作。</p>
+<p><strong>常见静态方法：</strong></p>
+<ul>
+<li><code>Date.now()</code>: 返回自1970年1月1日午夜以来的毫秒数。</li>
+<li><code>Date.parse()</code>: 解析一个日期字符串，返回该日期的时间戳（从1970年1月1日午夜开始的毫秒数）。</li>
+<li><code>Date.UTC()</code>: 根据提供的年份、月份、日期等参数，返回该日期的UTC时间戳。</li>
+</ul>
+<h2 id="登录模块表单校验"><a href="#登录模块表单校验" class="headerlink" title="登录模块表单校验"></a>登录模块表单校验</h2><p>位el-form添加:model绑定收集的数据，ref打标签，便于后面调用组件实例身上的validate方法校验表单，:rules传入校验规则</p>
+<h2 id="自定义表单校验"><a href="#自定义表单校验" class="headerlink" title="自定义表单校验"></a>自定义表单校验</h2><p>向rules的validator传入函数，函数传入的三个参数</p>
+<p><code>rule: any,</code>校验配置对象</p>
+<p><code>value: any,</code> 表单文本内容</p>
+<p><code>callback: any</code>，回调函数，满足条件放行通过，否则抛出错误</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs tsx"><span class="hljs-keyword">const</span> <span class="hljs-title function_">validatePass</span> = (<span class="hljs-params"><span class="hljs-attr">rule</span>: <span class="hljs-built_in">any</span>, <span class="hljs-attr">value</span>: <span class="hljs-built_in">any</span>, <span class="hljs-attr">callback</span>: <span class="hljs-built_in">any</span></span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (value === <span class="hljs-string">&#x27;&#x27;</span>) &#123;<br>    <span class="hljs-title function_">callback</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Please input the password&#x27;</span>))<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-keyword">if</span> (ruleForm.<span class="hljs-property">checkPass</span> !== <span class="hljs-string">&#x27;&#x27;</span>) &#123;<br>      <span class="hljs-keyword">if</span> (!ruleFormRef.<span class="hljs-property">value</span>) <span class="hljs-keyword">return</span><br>      ruleFormRef.<span class="hljs-property">value</span>.<span class="hljs-title function_">validateField</span>(<span class="hljs-string">&#x27;checkPass&#x27;</span>)<br>    &#125;<br>    <span class="hljs-title function_">callback</span>()<br>  &#125;<br>&#125;<br><span class="hljs-keyword">const</span> <span class="hljs-title function_">validatePass2</span> = (<span class="hljs-params"><span class="hljs-attr">rule</span>: <span class="hljs-built_in">any</span>, <span class="hljs-attr">value</span>: <span class="hljs-built_in">any</span>, <span class="hljs-attr">callback</span>: <span class="hljs-built_in">any</span></span>) =&gt; &#123;<br>  <span class="hljs-keyword">if</span> (value === <span class="hljs-string">&#x27;&#x27;</span>) &#123;<br>    <span class="hljs-title function_">callback</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Please input the password again&#x27;</span>))<br>  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (value !== ruleForm.<span class="hljs-property">pass</span>) &#123;<br>    <span class="hljs-title function_">callback</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Two inputs don&#x27;t match!&quot;</span>))<br>  &#125; <span class="hljs-keyword">else</span> &#123;<br>    <span class="hljs-title function_">callback</span>()<br>  &#125;<br>&#125;<br><br><span class="hljs-keyword">const</span> rules = reactive&lt;<span class="hljs-title class_">FormRules</span>&lt;<span class="hljs-keyword">typeof</span> ruleForm&gt;&gt;(&#123;<br>  <span class="hljs-attr">pass</span>: [&#123; <span class="hljs-attr">validator</span>: validatePass, <span class="hljs-attr">trigger</span>: <span class="hljs-string">&#x27;blur&#x27;</span> &#125;],<br>  <span class="hljs-attr">checkPass</span>: [&#123; <span class="hljs-attr">validator</span>: validatePass2, <span class="hljs-attr">trigger</span>: <span class="hljs-string">&#x27;blur&#x27;</span> &#125;],<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h1 id="3-主页面（layout）"><a href="#3-主页面（layout）" class="headerlink" title="3.主页面（layout）"></a>3.主页面（layout）</h1><h2 id="主页面静态页面搭建"><a href="#主页面静态页面搭建" class="headerlink" title="主页面静态页面搭建"></a>主页面静态页面搭建</h2><p>注意calc()和scss全局变量灵活控制样式</p>
+<h2 id="利用组件递归动态生成导航菜单"><a href="#利用组件递归动态生成导航菜单" class="headerlink" title="利用组件递归动态生成导航菜单"></a>利用组件递归动态生成导航菜单</h2><h3 id="当有动态路由时，把路由交由pinia管理"><a href="#当有动态路由时，把路由交由pinia管理" class="headerlink" title="当有动态路由时，把路由交由pinia管理"></a>当有动态路由时，把路由交由pinia管理</h3><p>将动态路由存储在Pinia（或其他状态管理工具）中的做法在大型Vue 3项目中比较常见，尤其是在需要根据用户权限动态生成或控制路由的情况下。将动态路由存储在Pinia中是为了更好地管理权限、动态添加路由、实现状态持久化，以及解耦业务逻辑。这种做法对于需要根据用户权限动态生成路由的应用非常有效。这么做有几个原因：</p>
+<h4 id="用户权限管理"><a href="#用户权限管理" class="headerlink" title="用户权限管理"></a>用户权限管理</h4><p>在一些应用中，不同用户有不同的权限，访问的路由也有所不同。将动态路由存储在Pinia中，可以根据用户登录后的权限数据来动态生成可访问的路由表。</p>
+<ul>
+<li><strong>示例</strong>: 用户登录后，后端返回用户的权限信息。前端根据这些权限信息生成动态路由，并存储在Pinia中，方便在路由守卫或其他组件中访问和控制。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 假设权限信息从后端获取后存储在 Pinia 中</span><br><span class="hljs-keyword">const</span> useAuthStore = <span class="hljs-title function_">defineStore</span>(<span class="hljs-string">&#x27;auth&#x27;</span>, &#123;<br>  <span class="hljs-attr">state</span>: <span class="hljs-function">() =&gt;</span> (&#123;<br>    <span class="hljs-attr">roles</span>: [], <span class="hljs-comment">// 用户角色或权限</span><br>    <span class="hljs-attr">routes</span>: [], <span class="hljs-comment">// 动态路由</span><br>  &#125;),<br>  <span class="hljs-attr">actions</span>: &#123;<br>    <span class="hljs-title function_">setRoutes</span>(<span class="hljs-params">routes</span>) &#123;<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">routes</span> = routes;<br>    &#125;<br>  &#125;<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="路由动态添加"><a href="#路由动态添加" class="headerlink" title="路由动态添加"></a>路由动态添加</h4><p>当应用加载时，可以根据用户的权限或其他条件，动态地将路由添加到Vue Router中。将这些路由放在Pinia中可以在应用的任何地方方便地管理和修改路由。</p>
+<ul>
+<li><strong>示例</strong>: 应用初始化时，根据用户角色动态添加路由：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> &#123; useAuthStore &#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./store/auth&#x27;</span>;<br><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./router&#x27;</span>;<br><br><span class="hljs-keyword">const</span> authStore = <span class="hljs-title function_">useAuthStore</span>();<br><br><span class="hljs-comment">// 根据权限生成路由</span><br><span class="hljs-keyword">const</span> dynamicRoutes = <span class="hljs-title function_">generateRoutes</span>(authStore.<span class="hljs-property">roles</span>);<br><br><span class="hljs-comment">// 存储在 Pinia 中</span><br>authStore.<span class="hljs-title function_">setRoutes</span>(dynamicRoutes);<br><br><span class="hljs-comment">// 动态添加路由</span><br>dynamicRoutes.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">route</span> =&gt;</span> &#123;<br>  router.<span class="hljs-title function_">addRoute</span>(route);<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<h4 id="状态管理与持久化"><a href="#状态管理与持久化" class="headerlink" title="状态管理与持久化"></a><strong>状态管理与持久化</strong></h4><p>通过Pinia管理动态路由，可以与其他应用状态一起进行集中管理和持久化。比如，当用户刷新页面时，动态路由依然可以从Pinia中恢复，不需要重新向后端请求权限信息来生成路由。</p>
+<ul>
+<li><strong>示例</strong>: 结合持久化插件将动态路由存储在本地，以避免页面刷新后路由信息丢失：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">import</span> createPersistedState <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;pinia-plugin-persistedstate&#x27;</span>;<br><br><span class="hljs-keyword">const</span> pinia = <span class="hljs-title function_">createPinia</span>();<br>pinia.<span class="hljs-title function_">use</span>(<span class="hljs-title function_">createPersistedState</span>(&#123;<br>  <span class="hljs-attr">paths</span>: [<span class="hljs-string">&#x27;auth.routes&#x27;</span>] <span class="hljs-comment">// 持久化动态路由</span><br>&#125;));<br></code></pre></td></tr></table></figure>
+
+<h3 id="写样式时一个注意点"><a href="#写样式时一个注意点" class="headerlink" title="写样式时一个注意点"></a>写样式时一个注意点</h3><p>发现加上了scoped但是父组件中的样式还是会影响子组件的样式</p>
+<h3 id="动态创建菜单时注意点"><a href="#动态创建菜单时注意点" class="headerlink" title="动态创建菜单时注意点"></a>动态创建菜单时注意点</h3><p>当菜单项有且仅有一个子路由时，使用了<code>el-menu-item</code>来呈现该子路由，而不是使用<code>el-sub-menu</code>。这么做的原因:</p>
+<p><strong>简化用户导航</strong>：如果父菜单项只有一个子路由，那么这个父菜单项和子路由基本上是绑定在一起的，导航到父菜单项时通常直接会进入这个子路由页面。因此，将唯一的子路由直接呈现为一级菜单项，可以简化用户的点击操作，使导航更加直观。</p>
+<p><strong>避免冗余点击</strong>：当父菜单项只有一个子路由时，如果使用<code>el-sub-menu</code>，用户点击父菜单项后还需要再点击子菜单项，这种情况就显得不必要和冗余。直接将唯一的子路由呈现为一级菜单项，可以减少用户的点击次数，提升用户体验。</p>
+<p><strong>UI&#x2F;UX体验一致</strong>：在用户看来，一个只包含一个子菜单的父菜单项如果使用了<code>el-sub-menu</code>，可能会让他们感到多余或困惑。直接将子菜单项提升为主菜单项，可以提供一致且简洁的用户体验。</p>
+<p><strong>路由与视图的自然映射</strong>：在某些设计中，一个父路由与其唯一的子路由可能代表同一个页面或功能。此时，子路由实际上代表的是主路由的具体视图，因此直接呈现为一级菜单更加合理。</p>
+<h3 id="可能出现的内存溢出问题"><a href="#可能出现的内存溢出问题" class="headerlink" title="可能出现的内存溢出问题"></a>可能出现的内存溢出问题</h3><p>如果把menuRoutes放在组件内部，则会引发内存溢出</p>
+<p>使用el-icon结合component（is属性对应相应meta里对应的图标）实现菜单图标</p>
+<h3 id="el-menu下还要包裹一层template结构"><a href="#el-menu下还要包裹一层template结构" class="headerlink" title="el-menu下还要包裹一层template结构"></a>el-menu下还要包裹一层template结构</h3><p>因为 <code>el-menu</code> 是整个菜单的容器，它只渲染一次，而 <code>v-for</code> 是用于循环渲染子元素的指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-menu class=&quot;menu&quot;&gt;<br>      &lt;template  v-for=&quot;m in menuRoutes&quot; :key=&quot;m.path&quot; &gt;<br>      &lt;!-- 没有子路由，呈现el-menu-item --&gt;<br>      &lt;el-menu-item :index=&quot;m.path&quot; v-if=&quot;!m.meta.isHidden &amp;&amp; !m.children&quot;&gt;<br>        &lt;template #title&gt;<br>          &lt;el-icon&gt;<br>            &lt;component :is=&quot;m.meta.icon&quot;&gt;&lt;/component&gt;<br>          &lt;/el-icon&gt;<br>          &lt;span&gt; &#123;&#123; m.meta?.title &#125;&#125; &lt;/span&gt;<br>        &lt;/template&gt;<br>      &lt;/el-menu-item&gt;<br>      &lt;!-- 有且仅有一个子路由，也呈现el-menu-item，避免冗余导航 --&gt;<br>      &lt;el-menu-item :index=&quot;m.children[0]?.path&quot; v-if=&quot;!m.meta.isHidden &amp;&amp; m.children?.length === 1&quot;&gt;<br>        &lt;template #title&gt;<br>          &lt;el-icon&gt;<br>            &lt;component :is=&quot;m.meta.icon&quot;&gt;&lt;/component&gt;<br>          &lt;/el-icon&gt;<br>          &lt;span&gt;&#123;&#123; m.children[0].meta.title &#125;&#125;&lt;/span&gt;<br>        &lt;/template&gt;<br>      &lt;/el-menu-item&gt;<br>      &lt;!-- 有一个以上子路由，采用折叠菜单 --&gt;<br>      &lt;el-sub-menu :index=&quot;m.path&quot; v-if=&quot;!m.meta.isHidden &amp;&amp; m.children &amp;&amp; m.children.length &gt; 1&quot;&gt;<br>        &lt;template #title&gt;<br>          &lt;el-icon&gt;<br>            &lt;component :is=&quot;m.meta.icon&quot;&gt;&lt;/component&gt;<br>          &lt;/el-icon&gt;<br>          &lt;span&gt;&#123;&#123; m.meta.title &#125;&#125;&lt;/span&gt;<br>        &lt;/template&gt;<br>        &lt;Menu :menuRoutes=&quot;m.children&quot;&gt;&lt;/Menu&gt;<br>      &lt;/el-sub-menu&gt;<br><br>      &lt;/template&gt;<br>    &lt;/el-menu&gt;<br></code></pre></td></tr></table></figure>
+
+<p>要循环渲染的是子元素而非<code>el-menu</code></p>
+<p><strong><code>el-menu</code> 作为容器：</strong> <code>el-menu</code> 是一个整体的菜单容器，不应被循环渲染。它内部的菜单项才是需要循环渲染的部分。直接在 <code>el-menu</code> 上使用 <code>v-for</code> 会导致整个菜单容器被多次渲染，而不是循环渲染每个菜单项。</p>
+<p><strong>循环的目标是子元素：</strong> <code>v-for</code> 的目标是循环生成多个子元素（如 <code>el-menu-item</code> 或 <code>el-sub-menu</code>），而不是循环生成多个 <code>el-menu</code> 容器。因此，<code>v-for</code> 应该放在一个用于包裹子元素的 <code>&lt;template&gt;</code> 或直接在子元素标签上。</p>
+<p><strong>保持结构清晰：</strong> 把 <code>v-for</code> 放在合适的位置，可以保持代码结构清晰，避免误解和潜在的渲染问题。直接把 <code>v-for</code> 放在 <code>el-menu</code> 上，可能会使代码混乱且不符合逻辑。</p>
+<h3 id="搭建路由时的注意点"><a href="#搭建路由时的注意点" class="headerlink" title="搭建路由时的注意点"></a>搭建路由时的注意点</h3><p>使用编程式路由导航，配置路由时要写完整路径</p>
+<p>注意给路由命名不能重复，否则后面的路由会顶掉前面的路由使其不能匹配</p>
+<p>注意menu组件里不能包含el-menu，否则递归使用组件时el-sub-menu下也是从el-menu开始的结构而非el-menu-item，会导致菜单项与父级平级，看起来没有向里的缩进量。</p>
+<p>还要注意搭建路由时要考虑清楚，&#x2F;home之所以是&#x2F;的子路由，是因为home组件要展示在LayOut组件中，&#x2F;screen会直接跳走为另一个页面所以与&#x2F;平级，其他&#x2F;acl和&#x2F;product都是挂载的LayOut组件，所以其子路由自然在LayOut组件中展示（理解好嵌套路由和组件之间的关系）</p>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><p>关于整个页面出现滚动条，发现是Logo组件未限定高度</p>
+<p>添加LayOut组件一级路由切换子路由时的动画</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;router-view v-slot=&quot;&#123; Component &#125;&quot;&gt;<br>  &lt;transition name=&quot;fade&quot;&gt;<br>    &lt;!-- 渲染LayOut一级路由的子路由 --&gt;<br>    &lt;component :is=&quot;Component&quot; /&gt;<br>  &lt;/transition&gt;<br>&lt;/router-view&gt;<br></code></pre></td></tr></table></figure>
+
+<p>el-menu-item的icon不要放到插槽中，否则折叠菜单后文字和icon都消失了，但el-sub-menu的icon放到插槽里</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-icon&gt;<br>  &lt;component :is=&quot;m.meta.icon&quot;&gt;&lt;/component&gt;<br>&lt;/el-icon&gt;<br>&lt;template #title&gt;<br>  &lt;span&gt;&#123;&#123; m.children[0].meta.title &#125;&#125;&lt;/span&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<p>回忆动态绑定样式（3种方式）</p>
+<p>以前觉得样式尽量写到css里，但在真实开发中感觉行内样式也挺香的，特别是只用给span这种普普通通的元素加点margin啥的</p>
+<p>注意折叠后不仅宽度要变，可能元素的定位也要发生变化</p>
+<p>注意注意，解构store对象要用storeToRefs包裹，否则解构出的数据失去响应式！！！（当然后面还是觉得xxxstore.xxx比较香）</p>
+<p>一个很奇怪的地方，切换菜单图标用refs解构成功，用storeTorefs有问题，说不能读取undefined上的value，是因为会忽略store中的方法和非响应式数据</p>
+<p>学到了新的route的api</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-comment">// 获取匹配到的路由数组</span><br>const matchedRoutes = route.matched;<br></code></pre></td></tr></table></figure>
+
+<h2 id="刷新业务实现"><a href="#刷新业务实现" class="headerlink" title="刷新业务实现"></a>刷新业务实现</h2><p>点击刷新按钮：</p>
+<p>​	1.更改存放layout配置仓库中isRefresh的值（值是多少不重要，只要变化就好）</p>
+<p>​	 2.监测到isRefresh修改后，卸载content部分展示组件再重新挂载( <code>v-if</code> 实现卸载与挂载的切换) （注意<code>v-if</code>是在渲染出来的组件身上）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>  &lt;!-- 使用过渡动画 --&gt;<br>  &lt;router-view v-slot=&quot;&#123; Component &#125;&quot;&gt;<br>    &lt;transition name=&quot;fade&quot;&gt;<br>      &lt;!-- 渲染LayOut一级路由的子路由，注意是卸载和挂载这里渲染出来的组件 --&gt;<br>      &lt;component :is=&quot;Component&quot; v-if=&quot;flag&quot;/&gt;<br>    &lt;/transition&gt;<br>  &lt;/router-view&gt;<br>&lt;/template&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="全屏业务实现"><a href="#全屏业务实现" class="headerlink" title="全屏业务实现"></a>全屏业务实现</h2><p>原生实现：</p>
+<p>（1）Element.requestFullscreen()：用于发出异步请求使元素进入全屏模式；</p>
+<p>（2）Document.exitFullscreen() ：用于让当前文档退出全屏模式；</p>
+<p>插件实现：</p>
+<p>screenfull.request(); &#x2F;&#x2F; 全屏<br>screenfull.exit(); &#x2F;&#x2F; 退出全屏<br>screenfull.toggle(); &#x2F;&#x2F; 全屏切换</p>
+<h2 id="获取用户信息与token理解"><a href="#获取用户信息与token理解" class="headerlink" title="获取用户信息与token理解"></a>获取用户信息与token理解</h2><p>token就是每个用户的唯一标识，当用户登录成功后，服务器端返回token，之后再向服务器发请求都需携带token</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//请求拦截器</span><br>request.<span class="hljs-property">interceptors</span>.<span class="hljs-property">request</span>.<span class="hljs-title function_">use</span>(<span class="hljs-function"><span class="hljs-params">config</span> =&gt;</span> &#123;<br>    <span class="hljs-comment">// 如果用户小仓库已经有TOKEN的话，以后发请求的请求头都要携带TOKEN</span><br>    <span class="hljs-keyword">let</span> &#123; token &#125; = <span class="hljs-title function_">useAcountStore</span>()<br>    <span class="hljs-keyword">if</span> (token) &#123;<br>        <span class="hljs-comment">//config配置对象,headers属性请求头,经常给服务器端携带公共参数</span><br>        config.<span class="hljs-property">headers</span>.<span class="hljs-property">token</span> = token<br>    &#125;<br>    <span class="hljs-keyword">return</span> config;<br>&#125;);<br></code></pre></td></tr></table></figure>
+
+<p>注意仓库中数据大部分要是响应式的，否则可能修改无效</p>
+<h2 id="路由鉴权"><a href="#路由鉴权" class="headerlink" title="路由鉴权"></a>路由鉴权</h2><p>注意新建的ts文件实现某个业务要记得在main.ts中引入</p>
+<p>注意路由鉴权文件中的router是整个项目的路由器，而非用useRouter()创建的路由器对象，原来学习路由守卫时是直接写在<code>src/router/index.ts</code>里的，现在只是把这部分提到新的地方<code>src/permission.ts</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 引入整个项目的路由器（而非创建路由器对象）</span><br><span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./router&quot;</span>;<br></code></pre></td></tr></table></figure>
+
+<p>注意在组件以外的地方使用小仓库要记得引入大仓库并传入</p>
+<h1 id="4-品牌管理模块"><a href="#4-品牌管理模块" class="headerlink" title="4.品牌管理模块"></a>4.品牌管理模块</h1><p>注意写接口时老师用的箭头函数，只有一行时可以省略（）和return，但我写的普通函数要记得加return</p>
+<p>在前端定义品牌的 TypeScript 数据类型时，<code>id</code> 属性可有可无是因为品牌的状态不同：</p>
+<ol>
+<li><strong>已有品牌</strong>：对于已经存在的品牌，<code>id</code> 是数据库中唯一标识该品牌的字段，因此它是必有的，用来区分和操作具体的品牌记录。</li>
+<li><strong>新增品牌</strong>：在创建新品牌时，<code>id</code> 通常由后端生成。前端在发送请求前，新增的品牌是没有 <code>id</code> 的，因为此时品牌还未被存储到数据库中，因此 <code>id</code> 属性可以为空或不存在。新品牌数据在发送到后端后，后端会生成一个 <code>id</code> 并返回给前端。</li>
+</ol>
+<h2 id="TypeScript-类型定义示例"><a href="#TypeScript-类型定义示例" class="headerlink" title="TypeScript 类型定义示例"></a>TypeScript 类型定义示例</h2><p>在 TypeScript 中，你可以使用可选属性 (<code>?</code>) 来定义 <code>id</code> 可以有也可以没有：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">typescript复制代码interface <span class="hljs-title class_">Brand</span> &#123;<br>  id?: number; <span class="hljs-comment">// 已有品牌有id，新增品牌没有id</span><br>  <span class="hljs-attr">name</span>: string;<br>  <span class="hljs-attr">logoUrl</span>: string;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里 <code>id?</code> 表示 <code>id</code> 属性是可选的，只有在已有品牌时才会存在，而在新增品牌时可以不定义这个属性。</p>
+<h3 id="什么时候使用接口，什么时候使用类型别名？"><a href="#什么时候使用接口，什么时候使用类型别名？" class="headerlink" title="什么时候使用接口，什么时候使用类型别名？"></a>什么时候使用接口，什么时候使用类型别名？</h3><ul>
+<li><p><strong>接口</strong>：更适合用于定义对象的结构，尤其是需要扩展或被类实现时。</p>
+</li>
+<li><p><strong>类型别名</strong>：更适合用于定义复杂的类型组合，如联合类型、交叉类型或需要表达更复杂的类型逻辑时。</p>
+</li>
+<li><p>如果你主要是定义对象的形状，尤其是需要扩展或实现时，推荐使用接口。</p>
+</li>
+<li><p>如果你需要更灵活地组合类型或定义复杂的类型逻辑，推荐使用类型别名。</p>
+</li>
+</ul>
+<h3 id="定义ts类型"><a href="#定义ts类型" class="headerlink" title="定义ts类型"></a>定义ts类型</h3><h4 id="响应式数据"><a href="#响应式数据" class="headerlink" title="响应式数据"></a>响应式数据</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 存储已有品牌数据</span><br><span class="hljs-keyword">let</span> trademarkArr = reactive&lt;<span class="hljs-title class_">Records</span>&gt;([])<br></code></pre></td></tr></table></figure>
+
+<h4 id="普通数据"><a href="#普通数据" class="headerlink" title="普通数据"></a>普通数据</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">let</span> <span class="hljs-attr">result</span>: <span class="hljs-title class_">TrademarkResponseData</span> = <span class="hljs-keyword">await</span> <span class="hljs-title function_">reqHasTrademark</span>(currentPage.<span class="hljs-property">value</span>, pageSize.<span class="hljs-property">value</span>)<br></code></pre></td></tr></table></figure>
+
+<h2 id="分页器组件"><a href="#分页器组件" class="headerlink" title="分页器组件"></a>分页器组件</h2><p>虽然数据改变了，但分页器组件渲染有问题</p>
+<p>给分页器组件添加一个key，每次数据改变后更新key</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (result.<span class="hljs-property">code</span> === <span class="hljs-number">200</span>) &#123;<br>  <span class="hljs-comment">// 让数据改变后分页器重新渲染</span><br>  pagination.<span class="hljs-property">value</span> = <span class="hljs-title class_">Date</span>.<span class="hljs-title function_">now</span>()<br>  total.<span class="hljs-property">value</span> = result.<span class="hljs-property">data</span>.<span class="hljs-property">total</span><br>  trademarkArr = result.<span class="hljs-property">data</span>.<span class="hljs-property">records</span><br>  <span class="hljs-comment">// 小米的logoUrl缺少http://</span><br>  <span class="hljs-keyword">if</span> (((trademarkArr[<span class="hljs-number">0</span>].<span class="hljs-property">logoUrl</span>).<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&#x27;http://&#x27;</span>)) === -<span class="hljs-number">1</span>) &#123;<br>    trademarkArr[<span class="hljs-number">0</span>].<span class="hljs-property">logoUrl</span> = <span class="hljs-string">&#x27;http://&#x27;</span> + trademarkArr[<span class="hljs-number">0</span>].<span class="hljs-property">logoUrl</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>记得新增和修改品牌向服务器发请求时要带data，不然服务器拿不到更新后的数据</p>
+<h2 id="表单校验"><a href="#表单校验" class="headerlink" title="表单校验"></a>表单校验</h2><p>form上打标识、model指定数据收集在哪、rules指定校验规则</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-form ref=&quot;formRef&quot; :model=&quot;trademarkParams&quot; :rules=&quot;rules&quot;&gt;<br></code></pre></td></tr></table></figure>
+
+<p>rules中自定义校验规则</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> <span class="hljs-title function_">validatePass</span> = (<span class="hljs-params">rule: any, value: any, callback: any</span>) =&gt; &#123;  <span class="hljs-keyword">if</span> (value === <span class="hljs-string">&#x27;&#x27;</span>) &#123;    <span class="hljs-title function_">callback</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Please input the password&#x27;</span>))  &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-keyword">if</span> (ruleForm.<span class="hljs-property">checkPass</span> !== <span class="hljs-string">&#x27;&#x27;</span>) &#123;      <span class="hljs-keyword">if</span> (!ruleFormRef.<span class="hljs-property">value</span>) <span class="hljs-keyword">return</span>      ruleFormRef.<span class="hljs-property">value</span>.<span class="hljs-title function_">validateField</span>(<span class="hljs-string">&#x27;checkPass&#x27;</span>)    &#125;    <span class="hljs-title function_">callback</span>()  &#125; &#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs json">const rules = reactive&lt;FormRules&lt;typeof ruleForm&gt;&gt;(<span class="hljs-punctuation">&#123;</span><br>  pass<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span> validator<span class="hljs-punctuation">:</span> validatePass<span class="hljs-punctuation">,</span> trigger<span class="hljs-punctuation">:</span> &#x27;blur&#x27; <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  checkPass<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span> validator<span class="hljs-punctuation">:</span> validatePass2<span class="hljs-punctuation">,</span> trigger<span class="hljs-punctuation">:</span> &#x27;blur&#x27; <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>  age<span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span> validator<span class="hljs-punctuation">:</span> checkAge<span class="hljs-punctuation">,</span> trigger<span class="hljs-punctuation">:</span> &#x27;blur&#x27; <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br><span class="hljs-punctuation">&#125;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>在合适时机调用 formRef.value.validate()校验所有表单项</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">confirmDialog</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 校验所有表单项</span><br>  <span class="hljs-keyword">await</span> formRef.<span class="hljs-property">value</span>.<span class="hljs-title function_">validate</span>()<br>    <span class="hljs-comment">// 校验不通过后续不执行</span><br>    .....<br></code></pre></td></tr></table></figure>
+
+<p>注意初次的formRef.value为undefined，可以用ts的问号写法或者下一次DOM更新时（nextTick）清除上一次表单校验提示错误信息</p>
+<p>注意get，delete请求时会在url上携带id等数据，不用传递额外数据；而post,put请求往往会额外传递data数据告诉服务器需添加或修改的数据</p>
+<p>注意删除品牌时传的当前页码：为什么要等于1？因为此时trademarkArr是还没有更新的，服务器那边已经修改了，但这边展示的数据还没有更新，要重新请求，所以这里的trademarkArr长度也是没有更新的，&#x3D;1的时候实际上这页已经没有数据了，要返回上一页</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 重新获取品牌数据</span><br><span class="hljs-keyword">await</span> <span class="hljs-title function_">getHasTradeMark</span>(trademarkArr.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">1</span> ? currentPage.<span class="hljs-property">value</span> - <span class="hljs-number">1</span> : currentPage.<span class="hljs-property">value</span>)<br></code></pre></td></tr></table></figure>
+
+<h1 id="5-属性管理模块"><a href="#5-属性管理模块" class="headerlink" title="5.属性管理模块"></a>5.属性管理模块</h1><p>注意el-select框v-model收集选中的分类的id，但id初始值为’‘（空字符串），如果设为0最开始会展示在select框上</p>
+<p>细节：一级分类的选中值变化时，要清空二级，三级分类的id和三级分类数组(二级分类数组不用请，已经获取了新的数据了)；二级分类选中值变化时，清空三级分类id即可</p>
+<p>使用storeTorefs和不使用各有优劣，使用了看起来比较简洁，但是每次就要.value了；不使用的话看起来比较复杂但不容易出问题</p>
+<p>注意收集用户的数据只收集新增一个数据项应具有的属性，id等由服务器返回的数据通通没有，收集的数据可以用在新增和修改中；修改时将收集到用户上传的数据与当前要修改的完整数据项使用Object.assign合并成新的数据项</p>
+<p>注意vue开发工具常有延迟，可通过页面来观察展示的数据，记得要给el-table传入data属性指定表格的数据</p>
+<p>注意el-table-column插槽中可以传入row，即为当前的数据项，可以通过v-model将用户输入保存到当前数据项（类比v-for的item）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-table-column label=&quot;属性值名称&quot;&gt;<br>  &lt;!-- row:代表attrValueList中每一项，即当前属性值对象 --&gt;<br>  &lt;template #=&quot;&#123; row &#125;&quot;&gt;<br>    &lt;el-input v-model=&quot;row.valueName&quot; placeholder=&quot;请输入&quot; /&gt;<br>  &lt;/template&gt;<br>&lt;/el-table-column&gt;<br></code></pre></td></tr></table></figure>
+
+<p>注意每次新增前要先清上一次用户输入的数据再拿到需要的数据</p>
+<p>注意input聚焦(.focus())这样的操作一般都要放在nextTick中</p>
+<p>对一堆input来说，每次让新添加上来的input聚焦，即所有input的最后一个（可以为这些input的ref传入函数，把他们存到数组中，方便拿到每一个input组件实例）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json">nextTick(() =&gt; <span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-comment">// 每次让最后一个el-input组件实例聚焦</span><br>  inputArr<span class="hljs-punctuation">[</span>attrParams.attrValueList.length - <span class="hljs-number">1</span><span class="hljs-punctuation">]</span>.focus()<br><span class="hljs-punctuation">&#125;</span>)<br></code></pre></td></tr></table></figure>
+
+<p>注意Object.assign()是浅拷贝，新、旧数据指向同一个对象，并未开辟新的存储空间</p>
+<p>，会出bug，比如修改属性后点击取消也会修改原来row里的属性值，但服务器那边的数据并没有被修改。可以使用lodash解决，也可以Object.assign(a,JSON.parse(JSON.stringfy(b)))，把原来的对象先转成JSON字符串，再转为JSON对象，在堆内存中开辟新的空间</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 使用lodash解决</span><br><span class="hljs-title class_">Object</span>.<span class="hljs-title function_">assign</span>(attrParams, <span class="hljs-title function_">cloneDeep</span>(row))<br></code></pre></td></tr></table></figure>
+
+<p>发现了一个影响用户体验的地方，原来我把属性数组、请求获取属性的方法放在了category小仓库里，导致每次重新获取属性比较慢，会出现几秒的暂无数据页面，但把这两个数据放到attribute组件里就好了</p>
+<p>发现使用categoryStore.$reset后路由组件渲染出问题了，显示找不到父节点？</p>
+<h1 id="6-SPU管理模块"><a href="#6-SPU管理模块" class="headerlink" title="6.SPU管理模块"></a>6.SPU管理模块</h1><p>el-table-column上的prop属性可以直接写源数据中的字段名称（能找到数组中每个对象中的字段）</p>
+<p>注意，分页器初始每页显示的条数必须要在page-sizes数组中，不然page-sizes上会显示一个初始值</p>
+<p>可以通过给form设置label-width值使每个表单项对齐</p>
+<p>如何在父组件中拿到子组件的实例对象：用ref，在切换场景我用的v-show，所以子组件是被挂载了，只是未显示</p>
+<p>接口崩了的处理办法，可以再配置swagger上的接口地址，再封装一个request.ts</p>
+<p>v-model既可以收集又可以更新</p>
+<p>数组的map方法，map() 方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。map() 方法按照原始数组元素顺序依次处理元素。<strong>注意：</strong> map() 不会对空数组进行检测。<strong>注意：</strong> map() 不会改变原始数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// el-upload里上传图片的格式必须是&#123;name:...,url:...&#125;，用map转换一下</span><br>imgList.<span class="hljs-property">value</span> = imgResult.<span class="hljs-property">data</span>.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> &#123;<br>    <span class="hljs-attr">name</span>: item.<span class="hljs-property">imgName</span>,<br>    <span class="hljs-attr">url</span>: item.<span class="hljs-property">imgUrl</span><br>  &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>当数据比较多时，分散在各个接口中时，可以先声明几个变量来存储数据，最后整合交给服务器</p>
+<p>注意row传进来的是整个一行的对象（完整的对象）</p>
+<p>注意filter与every的结合使用，可以过滤出符合某些条件的元素</p>
+<p>要想Select框拿到数据需要在select上写v-model收集要拿到的数据，并在option上设置value拿到每一项对应的数据，要收集多个数据时可使用模板字符串，后面再对拿到的数据做处理如split</p>
+<p>注意字符串split后是个数组，解构要用[]</p>
+<p>注意对空、重复属性值的检查可以放在将新的属性值添加到原数组之前（此时不用剔除自己，因为还没收集到），也可以放到之后（此时要剔除自己，收集到了，且还要将原数组中空、重复的这个属性值去掉）</p>
+<p>因为要收集用户输入，所以一定是在失去焦点之后才做判断</p>
+<h3 id="JS中的短路逻辑"><a href="#JS中的短路逻辑" class="headerlink" title="JS中的短路逻辑"></a>JS中的短路逻辑</h3><p>在 <code>imgUrl: (item.response &amp;&amp; item.response.data) || item.imgUrl</code> 这个代码中：</p>
+<ul>
+<li><strong>当 <code>item.response</code> 为真</strong>，并且 <code>item.response.data</code> 也存在时，表达式返回 <code>item.response.data</code> 的值。</li>
+<li><strong>当 <code>item.response</code> 为假</strong>（如 <code>null</code> 或 <code>undefined</code>）时，整个 <code>item.response &amp;&amp; item.response.data</code> 表达式返回 <code>null</code> 或 <code>undefined</code>，此时通过 <code>||</code> 运算符，会使用右边的值 <code>item.imgUrl</code> 作为 <code>imgUrl</code> 的值。</li>
+</ul>
+<p>不能直接写成 <code>item.response.data || item.imgUrl</code> 的原因：</p>
+<ol>
+<li><strong>防止访问未定义属性的错误</strong>：<ul>
+<li>如果 <code>item.response</code> 不存在（即为 <code>undefined</code> 或 <code>null</code>），那么 <code>item.response.data</code> 的访问会导致错误。</li>
+<li><code>item.response &amp;&amp; item.response.data</code> 通过短路求值，首先检查 <code>item.response</code> 是否存在。如果不存在，就不会继续访问 <code>item.response.data</code>，从而避免了潜在的错误。</li>
+</ul>
+</li>
+<li><strong>处理 <code>item.response</code> 为 <code>null</code> 或 <code>undefined</code> 的情况</strong>：<ul>
+<li>使用 <code>item.response &amp;&amp; item.response.data</code> 可以优雅地处理 <code>item.response</code> 为 <code>null</code> 或 <code>undefined</code> 的情况，返回 <code>null</code> 或 <code>undefined</code>，然后通过 <code>||</code> 运算符使用 <code>item.imgUrl</code> 作为默认值。</li>
+</ul>
+</li>
+</ol>
+<p>注意接口定义ts数据类型要和老师完全一致</p>
+<p>注意区分插槽传的参数$index（当前第几行）和v-for里面传的index（v-for遍历生成的索引）不是一个东西</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template #=&quot;&#123; row,$index &#125;&quot;&gt;<br>           &lt;el-tag closable v-for=&quot;(item, index) in row.spuSaleAttrValueList&quot; :key=&quot;item.id&quot;<br>             @close=&quot;closeTag(row, index)&quot; :style=&quot;&#123; marginRight: &#x27;6px&#x27; &#125;&quot;&gt;&#123;&#123; item.<br>               saleAttrValueName &#125;&#125;&lt;/el-tag&gt;<br> &lt;/template&gt;              <br></code></pre></td></tr></table></figure>
+
+<p>注意新增SPU在清空上一次数据时，不仅要清空spuParams，还要清空其他用来收集SPU数据的变量，如imgList,attrList（最开始页面展示的就是这里面的数据）</p>
+<h3 id="数组的reduce方法"><a href="#数组的reduce方法" class="headerlink" title="数组的reduce方法"></a>数组的reduce方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">array.<span class="hljs-title function_">reduce</span>(<span class="hljs-title function_">callback</span>(accumulator, currentValue, currentIndex, array), initialValue)<br></code></pre></td></tr></table></figure>
+
+<h4 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h4><ol>
+<li><strong>callback</strong>: 一个函数，用于执行每个数组元素的累加计算。它有四个参数：<ul>
+<li><code>accumulator</code> (累计器)：上一次调用回调函数时返回的累积值，或者是初始值 <code>initialValue</code>（如果提供了的话）。</li>
+<li><code>currentValue</code> (当前值)：数组中正在处理的当前元素。</li>
+<li><code>currentIndex</code> (当前索引)：当前元素在数组中的索引。如果提供了 <code>initialValue</code>，则索引为 <code>0</code>，否则为 <code>1</code>。</li>
+<li><code>array</code> (数组)：调用 <code>reduce</code> 方法的数组。</li>
+</ul>
+</li>
+<li><strong>initialValue</strong> (可选): 作为第一次调用 <code>callback</code> 时 <code>accumulator</code> 的初始值。如果没有提供初始值，数组的第一个元素将被作为初始值，并从第二个元素开始执行回调函数。</li>
+</ol>
+<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><ul>
+<li><code>reduce</code> 方法返回累计计算的结果。</li>
+</ul>
+<p>先开始把sku的attrId,valueId收集到spu的attr对象身上，最后使用Reduce方法把这个字段切割并封装成对象赋值给skuParams</p>
+<h3 id="遍历取反的思想"><a href="#遍历取反的思想" class="headerlink" title="遍历取反的思想"></a>遍历取反的思想</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 设置默认图片</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">setDefaultImg</span>(<span class="hljs-params">row:any</span>) &#123;<br>  <span class="hljs-comment">// 勾选当前图片前的勾选框</span><br>  <span class="hljs-comment">// 先让所有图片不选，再勾选当前的（row）勾选框</span><br>  imgArr.<span class="hljs-property">value</span>.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">item</span>) =&gt;</span> &#123;<br>    imgTable.<span class="hljs-property">value</span>.<span class="hljs-title function_">toggleRowSelection</span>(item, <span class="hljs-literal">false</span>)<br>  &#125;)<br>  imgTable.<span class="hljs-property">value</span>.<span class="hljs-title function_">toggleRowSelection</span>(row, <span class="hljs-literal">true</span>)<br><br>  skuParams.<span class="hljs-property">value</span>.<span class="hljs-property">skuDefaultImg</span> = row.<span class="hljs-property">imgUrl</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="7-用户管理模块"><a href="#7-用户管理模块" class="headerlink" title="7.用户管理模块"></a>7.用户管理模块</h1><p>使input两端不能输入空格，可使用v-model.trim（输入的内容中间输入的空格不会去除）</p>
+<p>清楚上一次表单校验提示的错误信息，可以在抽屉打开时进行，利用element plus提供的事件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-drawer v-model=&quot;showUserDrawer&quot; direction=&quot;rtl&quot; @open=&quot;formRef.clearValidate()&quot;&gt;<br></code></pre></td></tr></table></figure>
+
+<p>trigger:’change’会有问题，点击取消，上次输入的信息变成空串也会触发</p>
+<h3 id="表单校验中v-if和v-show的问题"><a href="#表单校验中v-if和v-show的问题" class="headerlink" title="表单校验中v-if和v-show的问题"></a>表单校验中v-if和v-show的问题</h3><p>发现表单校验一个神奇的地方，修改用户是只展示用户名和用户昵称的，添加用户的话还要输入用户密码，所以采用v-show&#x2F;v-if控制用户密码el-input显示与隐藏。但是用v-show的话密码输入框还是会挂载的，只是不展示，所以表单校验还会校验密码，就会出问题；但用v-if的话，密码输入框会被卸载，也就不会校验密码了</p>
+<p>在 Vue 中，<code>v-if</code> 和 <code>v-show</code> 的工作机制不同，这也是为什么在你的示例中，使用 <code>v-if</code> 时不会触发校验，而使用 <code>v-show</code> 时会触发校验的原因。</p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ul>
+<li><p>当使用 <code>v-if=&quot;!userParams.id&quot;</code> 时，如果 <code>userParams.id</code> 存在，表单项 <code>&lt;el-form-item&gt;</code> 及其子元素根本就不会被渲染到页面上，因此表单验证也不会触发。</p>
+</li>
+<li><p>当使用 <code>v-show=&quot;!userParams.id&quot;</code> 时，即使 <code>userParams.id</code> 存在，表单项 <code>&lt;el-form-item&gt;</code> 及其子元素仍然存在于 DOM 中，只是被隐藏了。因此，表单验证仍然会执行。</p>
+</li>
+<li><p>**使用 <code>v-if</code>**：适用于需要在特定条件下完全移除表单项及其验证的场景。</p>
+</li>
+<li><p>**使用 <code>v-show</code>**：适用于需要在表单项可见或不可见时，依然保持表单项及其验证的场景。</p>
+</li>
+</ul>
+<p>每次修改完用户让浏览器强制刷新一次，因为可能修改的是自己的用户，那么就要重新获取用户信息并让用户重新登录（这里的逻辑写在了路由守卫里）</p>
+<p>修改了login下的index.vue和permission.ts</p>
+<p>注意展示和数据，可以将数据加工成需要的样子但可能比较复杂，展示时在模板里的js表达式也能得到相应效果</p>
+<h3 id="数组api的灵活使用（map-reduce）"><a href="#数组api的灵活使用（map-reduce）" class="headerlink" title="数组api的灵活使用（map,reduce）"></a>数组api的灵活使用（map,reduce）</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 第1种：使用reduce</span><br><span class="hljs-comment">// checkedRoleIds.value = checkedRoles.value.reduce((prev: any, next) =&gt; &#123;</span><br><span class="hljs-comment">//   prev.push(next.id)</span><br><span class="hljs-comment">//   return prev</span><br><span class="hljs-comment">// &#125;, [])</span><br><span class="hljs-comment">// 第2种，使用map</span><br>checkedRoleIds.<span class="hljs-property">value</span> = checkedRoles.<span class="hljs-property">value</span>.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;<br>  <span class="hljs-keyword">return</span> item.<span class="hljs-property">id</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>注意删除加了气泡确认框后，把原来绑在delete按钮上的回调要换到气泡框的@confirm上</p>
+<h3 id="搜索用户业务"><a href="#搜索用户业务" class="headerlink" title="搜索用户业务"></a>搜索用户业务</h3><p>在获取用户列表时将输入的用户名作为query参数传给接口，来获取相应用户</p>
+<p>注意搜索后不仅要更新当前用户列表，还要更新新返回的数据条数，当然这个新增业务可以直接添加在获取用户列表中</p>
+<h3 id="事件回调直接绑定异步函数可能出现问题"><a href="#事件回调直接绑定异步函数可能出现问题" class="headerlink" title="事件回调直接绑定异步函数可能出现问题"></a>事件回调直接绑定异步函数可能出现问题</h3><p>为何重置按钮直接绑定getUser请求会显示无网络呢，但把它写一个回调来调getUser却能正常使用？</p>
+<p>当在渲染过程中引发了一个异步操作时，可能导致浏览器认为网络请求出错，尤其是在开发环境或某些浏览器中更容易出现这种情况</p>
+<p>确保 <code>getUser</code> 的执行是在点击事件的处理过程中被调用，而不是直接作为事件处理函数返回值。这样做有几个好处：</p>
+<ol>
+<li><strong>避免 Vue 的异步错误处理问题</strong>：包装在回调中的异步函数调用，可以避免 Vue 在处理异步操作时可能产生的错误。</li>
+<li><strong>更清晰的代码结构</strong>：回调函数使代码更易读，并且可以在回调中加入额外的逻辑（如条件判断、额外操作等）。</li>
+</ol>
+<p>可能的原因：</p>
+<ul>
+<li><strong>异步操作的返回值</strong>：直接绑定异步函数会将返回的 <code>Promise</code> 暴露给 Vue 的事件处理机制，可能引发不可预见的行为。</li>
+<li><strong>生命周期冲突</strong>：Vue 可能在某些时候因组件状态或渲染的原因，无法正确处理直接绑定的异步函数</li>
+</ul>
+<p>想要el-input组件在按下回车后调用搜索的回调，需要在el-form上阻止按下enter（提交表单）的默认行为(会刷新页面)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-form ref=&quot;formRef&quot; label-width=&quot;auto&quot; inline @submit.prevent=&quot;&quot;&gt;<br>    &lt;el-input placeholder=&quot;请输入用户姓名&quot; v-model=&quot;searchName&quot; @keyup.enter=&quot;searchUser&quot; /&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="分配权限"><a href="#分配权限" class="headerlink" title="分配权限"></a>分配权限</h3><p>勾选菜单其实只要勾选叶子节点就可以了，利用递归（把这个业务封装成一个函数，然后在函数中再次调用，即为递归）</p>
+<p>reduce在递归中的使用？prev对累加递归调用函数的结果未可知，感觉不是一个prev了啊，每次的初始值如果赋空值的话结果根本保存不下来的，所以初始的空数组要在函数中传，而递归中传的是prev</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 收集被选中的权限的ID</span><br><span class="hljs-comment">// // 法一：用foreach</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getCheckedMenu</span>(<span class="hljs-params">menuList: Menu[], initArr: number[]</span>) &#123;<br>  menuList.<span class="hljs-title function_">forEach</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;<br>    <span class="hljs-keyword">if</span> (!item.<span class="hljs-property">children</span> || item.<span class="hljs-property">children</span>.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">0</span>) &#123;<br>      <span class="hljs-keyword">if</span> (item.<span class="hljs-property">select</span>) &#123;<br>        initArr.<span class="hljs-title function_">push</span>((item.<span class="hljs-property">id</span> <span class="hljs-keyword">as</span> number))<br>      &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-title function_">getCheckedMenu</span>(item.<span class="hljs-property">children</span>, initArr)<br>    &#125;<br>  &#125;)<br>  <span class="hljs-keyword">return</span> initArr<br>&#125;<br><span class="hljs-comment">// 法二：用reduce</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">getCheckedMenu</span>(<span class="hljs-params">menuList: Menu[], initArr: number[]</span>) &#123;<br>  <span class="hljs-keyword">return</span> menuList.<span class="hljs-title function_">reduce</span>(<span class="hljs-function">(<span class="hljs-params">prev: number[], next</span>) =&gt;</span> &#123;<br>    <span class="hljs-comment">// 检查是否为叶子节点（没有子节点）</span><br>    <span class="hljs-keyword">if</span> ((!next.<span class="hljs-property">children</span> || next.<span class="hljs-property">children</span>.<span class="hljs-property">length</span> &lt;= <span class="hljs-number">0</span>)) &#123;<br>      <span class="hljs-keyword">if</span> (next.<span class="hljs-property">select</span>) &#123;<br>        prev.<span class="hljs-title function_">push</span>(next.<span class="hljs-property">id</span> <span class="hljs-keyword">as</span> number);<br>      &#125;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// 递归处理子节点</span><br>      <span class="hljs-title function_">getCheckedMenu</span>(next.<span class="hljs-property">children</span>, prev);<br>    &#125;<br>    <span class="hljs-keyword">return</span> prev;<br>  &#125;, initArr);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>初始时选中的是从数据中过滤出来的，后续被选中的权限要用计算得到</p>
+<p>注意要分配角色、权限也需要拿到id，也要Object.assign()合并params和row</p>
+<p>注意搜索和重置清空搜索框的时机</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 搜索按钮回调</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">searchRole</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-title function_">getRole</span>()<br>  <span class="hljs-comment">// 清空搜索关键字</span><br>  keyword.<span class="hljs-property">value</span> = <span class="hljs-string">&#x27;&#x27;</span><br>&#125;<br><span class="hljs-comment">// 重置按钮回调</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">refresh</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-comment">// 清空搜索关键字</span><br>  keyword.<span class="hljs-property">value</span> = <span class="hljs-string">&#x27;&#x27;</span><br>  <span class="hljs-title function_">getRole</span>()<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>注意模板里用ref不用.value</p>
+<p>el-table的树形，默认展开使用expand-row-keys要是字符串类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;el-table :data=&quot;permissionList&quot; style=&quot;width: 100%; margin-bottom: 20px&quot; row-key=&quot;id&quot; border :expand-row-keys=&quot;[&#x27;1&#x27;]&quot;&gt;<br></code></pre></td></tr></table></figure>
+
+<p>注意对话框等结构不要写到表格的结构中</p>
+<p>注意追加新的菜单，还要收集pid和level，才能知道是给谁追加几级菜单</p>
+<p>权限管理-&gt;需设置异步路由（需满足条件才能访问），原来的全是常量路由</p>
+<p>popover里面嵌套颜色选择器color-picker会出现的问题，颜色选择器上的事件会冒泡到popover上，而且stop没有用，可能因为是原生事件？解决方法：1.手动控制popover的显示与隐藏，其上的visible属性。2.或者在取色器上增加一个:teleported&#x3D;”false”</p>
+<p>(解释：</p>
+<ul>
+<li><strong>默认 <code>teleport</code> 行为</strong>：<code>Element Plus</code> 中的 <code>el-popover</code> 和 <code>el-color-picker</code> 都使用了 <code>teleport</code> 技术，默认会将弹出的内容（如颜色选择器）移动到 <code>body</code> 的末尾。这样可以避免由于 z-index 或父元素样式导致的显示问题。</li>
+<li><strong>事件处理问题</strong>：当弹出的内容被 <code>teleport</code> 移动到 <code>body</code> 外部时，事件冒泡和触发机制可能不如预期，尤其是点击时。因为点击颜色选择器时，弹出层和触发层在不同的 DOM 层次中，事件可能没有被正确捕获和处理。</li>
+<li>**<code>teleported=&quot;false&quot;</code>**：当你将 <code>teleported</code> 设置为 <code>false</code> 时，弹出层内容会被渲染在原本组件的 DOM 结构内部，不再移到 <code>body</code> 外。这样可以确保事件冒泡和 DOM 层次的操作保持一致，从而避免 <code>popover</code> 弹出框由于错误的事件处理而消失。</li>
+</ul>
+<p>因此，通过禁用 <code>teleport</code> 功能，所有的元素都保持在相同的 DOM 层次中，这就避免了因为跨层事件冒泡带来的问题。)</p>
+<h1 id="8-数据大屏"><a href="#8-数据大屏" class="headerlink" title="8.数据大屏"></a>8.数据大屏</h1><p>自适应问题：</p>
+<p>vw,vh解决，思路简单，但计算麻烦，可同rem一起使用</p>
+<p>scale缩放解决</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-class">.content</span> &#123;<br>  <span class="hljs-comment">/* #region 核心：将content的变换原点变为父元素几何中心 */</span><br>  <span class="hljs-attribute">position</span>: fixed;<br>  <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">top</span>:<span class="hljs-number">50%</span>;<br>  <span class="hljs-attribute">transform-origin</span>: left top;<br>  <span class="hljs-comment">/* #endregion */</span><br>  <span class="hljs-attribute">width</span>: <span class="hljs-number">1920px</span>;<br>  <span class="hljs-attribute">height</span>: <span class="hljs-number">1080px</span>;<br>  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#ddd</span>;<br>  <span class="hljs-attribute">transform</span>: <span class="hljs-built_in">scale</span>(<span class="hljs-number">1.1</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>再用js确定缩放倍数，并将content再位移到原来的位置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 得到content</span><br>   <span class="hljs-keyword">let</span> content = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelector</span>(<span class="hljs-string">&#x27;.content&#x27;</span>)<br>   <span class="hljs-comment">// content缩放</span><br>   content.<span class="hljs-property">style</span>.<span class="hljs-property">transform</span> = <span class="hljs-string">`scale(<span class="hljs-subst">$&#123;getScale()&#125;</span>) translate(-50%,-50%)`</span><br>   <span class="hljs-comment">// 得到缩放倍数</span><br>   <span class="hljs-keyword">function</span> <span class="hljs-title function_">getScale</span>(<span class="hljs-params">w = <span class="hljs-number">1920</span>, h = <span class="hljs-number">1080</span></span>) &#123;<br>     <span class="hljs-keyword">let</span> ww = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerWidth</span> / w<br>     <span class="hljs-keyword">let</span> wh = <span class="hljs-variable language_">window</span>.<span class="hljs-property">innerHeight</span> / h<br>     <span class="hljs-keyword">return</span> ww &lt; wh ? ww : wh<br>   &#125;<br>   <span class="hljs-variable language_">window</span>.<span class="hljs-property">onresize</span> = <span class="hljs-function">() =&gt;</span> &#123;<br>     <span class="hljs-comment">// content缩放</span><br>     content.<span class="hljs-property">style</span>.<span class="hljs-property">transform</span> = <span class="hljs-string">`scale(<span class="hljs-subst">$&#123;getScale()&#125;</span>) translate(-50%,-50%)`</span><br>   &#125;<br></code></pre></td></tr></table></figure>
+
+<p>reduce有时会搞不清prev变成了什么，这时直接用foreach就好.注意这里的逻辑（这里的要保持父子关系，即不能把children过滤出来和父路由同级，不然就变成下图这样了，但是也要过滤掉不能访问的子路由）和上面勾选菜单（只要最下面的叶子节点判断勾选就好了，不用管以上的节点）的处理不一样</p>
+<p><img src="/2024/09/24/%E7%A1%85%E8%B0%B7%E7%94%84%E9%80%89%E8%BF%90%E8%90%A5%E5%B9%B3%E5%8F%B0/img/image-20240914112843963.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 从异步路由中过滤出用户可以访问的路由</span><br><span class="hljs-comment">// 注意每次使用这个函数要对asyncRoutes进行深拷贝，否则会修改元数据</span><br> <span class="hljs-keyword">function</span> <span class="hljs-title function_">filterAsyncRoutes</span>(<span class="hljs-params">asyncRoutes: RouteRecordRaw[], routeNameArr: string[]</span>) &#123;<br>   <span class="hljs-keyword">return</span> asyncRoutes.<span class="hljs-title function_">filter</span>(<span class="hljs-function"><span class="hljs-params">item</span> =&gt;</span> &#123;<br>     <span class="hljs-comment">// 有孩子</span><br>     <span class="hljs-keyword">if</span> (routeNameArr.<span class="hljs-title function_">includes</span>((item.<span class="hljs-property">name</span> <span class="hljs-keyword">as</span> string))) &#123;<br>       <span class="hljs-comment">// 路由名字匹配</span><br>       <span class="hljs-keyword">if</span> (item.<span class="hljs-property">children</span> &amp;&amp; item.<span class="hljs-property">children</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;<br>         <span class="hljs-comment">// 如果有孩子</span><br>         <span class="hljs-comment">// 要继续过滤出匹配的孩子</span><br>         item.<span class="hljs-property">children</span> = <span class="hljs-title function_">filterAsyncRoutes</span>(item.<span class="hljs-property">children</span>, routeNameArr)<br>       &#125;<br>       <span class="hljs-comment">// 没有孩子则直接返回路由</span><br>       <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span><br>     &#125;<br>   &#125;);<br> &#125;<br></code></pre></td></tr></table></figure>
+
+<p>以上过滤出来的异步路由只是能够展示出来，但还没有注册</p>
+<p>动态追加了异步路由和任意路由后，异步路由加载白屏问题：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 获取用户信息</span><br><span class="hljs-keyword">await</span> <span class="hljs-title function_">getUserInfo</span>()<br><span class="hljs-comment">// 如果加载异步路由直接放行会出现白屏，等待路由组件渲染完毕再放行</span><br><span class="hljs-title function_">next</span>(&#123;...to&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>注意页面需要倒计时效果，如果是用延时调用，需要在模板里调用函数获得时间，这样就可以数据更新-》模板重新渲染-》重新调用该函数-》重新执行延时调用（从而实现与定时器一样的效果）</p>
+<p>设置按钮权限可以用自定义全局指令，只用引用一次仓库里的按钮数据</p>
+<p>定义全局指令，要定义在函数里，然后在main.ts中引入就会执行</p>
+<p>这里为什么要这样写？在 Axios 中，<code>DELETE</code> 请求的配置对象需要显式地将请求体数据放在 <code>data</code> 属性中。通过 <code>&#123; data: idList &#125;</code>，你明确告诉 Axios 在发送 <code>DELETE</code> 请求时，将 <code>idList</code> 作为请求体的一部分传递到服务器端。</p>
+<p><strong><code>data</code> 属性</strong>：用来指定请求体内容，类似于 <code>POST</code> 和 <code>PUT</code> 请求中常见的行为。</p>
+<p><strong>传递数据</strong>：这样后端能够接收到你指定的 <code>idList</code>，处理相应的批量删除操作。</p>
+<p>在 Axios 中发送 <code>DELETE</code> 请求时，通常无法像 <code>POST</code> 请求那样直接通过第二个参数传递请求体的数据。<code>DELETE</code> 方法的规范更倾向于使用 URL 路径或查询字符串传递参数，而不像 <code>POST</code> 请求有专门的请求体用于发送数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 批量删除用户方法</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">reqBatchRemoveUser</span>(<span class="hljs-params">idList: number[]</span>) &#123;<br>  <span class="hljs-keyword">return</span> request.<span class="hljs-title function_">delete</span>(<span class="hljs-variable constant_">API</span>.<span class="hljs-property">BATCHREMOVEUSERS_URL</span>, &#123; <span class="hljs-attr">data</span>: idList &#125;)<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>改变页码要在请求之前，因为当前页码改变会触发current-change事件所以传入了当前页码导致不会返回首页</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// 获取已有SKU</span><br><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">getSku</span>(<span class="hljs-params">pager: number = <span class="hljs-number">1</span></span>) &#123;<br>  currentPage.<span class="hljs-property">value</span> = pager<br>  <span class="hljs-comment">// 发请求</span><br>  <span class="hljs-keyword">let</span> <span class="hljs-attr">result</span>: <span class="hljs-title class_">SkuResponseData</span> = <span class="hljs-keyword">await</span> <span class="hljs-title function_">reqSku</span>(currentPage.<span class="hljs-property">value</span>, pageSize.<span class="hljs-property">value</span>)<br>  <span class="hljs-comment">// 存储已有SKU</span><br>  skuList.<span class="hljs-property">value</span> = result.<span class="hljs-property">data</span>.<span class="hljs-property">records</span><br>  <span class="hljs-comment">// 存储数据总条数</span><br>  total.<span class="hljs-property">value</span> = result.<span class="hljs-property">data</span>.<span class="hljs-property">total</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Vue3/" class="category-chain-item">Vue3</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/" class="print-no-link">#项目笔记</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>硅谷甄选运营平台</div>
+      <div>http://example.com/2024/09/24/硅谷甄选运营平台/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>monica</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/09/26/LeetCode%E5%88%B7%E9%A2%98%E5%BF%83%E5%BE%97/" title="LeetCode刷题心得（持续更新中...）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">LeetCode刷题心得（持续更新中...）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/09/24/%E5%AD%A6%E4%B9%A0Vue3/" title="学习Vue3">
+                        <span class="hidden-mobile">学习Vue3</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'monica4125/utterances-comment');
+      s.setAttribute('issue-term', 'pathname');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量
+        <span id="leancloud-site-pv"></span>
+        次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访问数
+        <span id="leancloud-site-uv"></span>
+        人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
